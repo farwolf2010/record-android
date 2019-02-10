@@ -22,7 +22,7 @@ public class RecordModule extends WXModuleBase {
     public void start(final HashMap param){
 //        Manifest.permission.RECORD_AUDIO
 
-
+//        audioService=new AudioService();
         Perssion.check((Activity) mWXSDKInstance.getContext(), Manifest.permission.RECORD_AUDIO,new PerssionCallback(){
 
 
@@ -49,6 +49,9 @@ public class RecordModule extends WXModuleBase {
         });
 
 
+
+
+
     }
 
     @JSMethod
@@ -68,9 +71,11 @@ public class RecordModule extends WXModuleBase {
         RecorderManager.getInstance().stop(new ModuleResultListener() {
             @Override
             public void onResult(Object o) {
+
                 callback.invoke(o);
             }
         });
     }
+
 
 }
